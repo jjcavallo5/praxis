@@ -35,6 +35,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
+    "@praxis/tooling": "workspace:",
     "@rolldown/plugin-babel": "^0.2.3",
     "@tailwindcss/typography": "^0.5.16",
     "@tanstack/devtools-vite": "latest",
