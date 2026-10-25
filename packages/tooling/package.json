@@ -2,19 +2,19 @@
   "name": "@praxis/tooling",
   "version": "0.0.1",
   "description": "Tooling for the praxis application",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [],
-  "author": "Jeremy Cavallo",
   "license": "MIT",
-  "packageManager": "pnpm@10.21.0",
+  "author": "Jeremy Cavallo",
+  "main": "index.js",
   "exports": {
     "./vite": "./src/vite.ts",
     "./tsconfig": "./tsconfig.json"
   },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "devDependencies": {
     "vite-plus": "catalog:"
-  }
+  },
+  "packageManager": "pnpm@10.21.0"
 }
