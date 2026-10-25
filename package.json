@@ -2,21 +2,17 @@
   "name": "praxis",
   "version": "0.0.1",
   "description": "Fuel what's next",
+  "keywords": [],
+  "license": "MIT",
+  "author": "Jeremy Cavallo",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "Jeremy Cavallo",
-  "license": "MIT",
-  "packageManager": "pnpm@10.21.0",
   "devDependencies": {
-    "turbo": "^2.10.12"
+    "@praxis/tooling": "workspace:",
+    "turbo": "^2.10.12",
+    "vite-plus": "catalog:"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "lightningcss"
-    ]
-  }
+  "packageManager": "pnpm@10.21.0"
 }
