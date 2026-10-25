@@ -10,6 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@praxis/tooling": "workspace:",
     "turbo": "^2.10.12",
     "vite-plus": "catalog:"
   },
