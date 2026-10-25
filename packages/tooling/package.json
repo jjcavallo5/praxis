@@ -11,7 +11,8 @@
   "license": "MIT",
   "packageManager": "pnpm@10.21.0",
   "exports": {
-    "./vite": "./src/vite.ts"
+    "./vite": "./src/vite.ts",
+    "./tsconfig": "./tsconfig.json"
   },
   "devDependencies": {
     "vite-plus": "catalog:"
