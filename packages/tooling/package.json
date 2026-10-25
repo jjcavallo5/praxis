@@ -9,5 +9,11 @@
   "keywords": [],
   "author": "Jeremy Cavallo",
   "license": "MIT",
-  "packageManager": "pnpm@10.21.0"
+  "packageManager": "pnpm@10.21.0",
+  "exports": {
+    "./vite": "./src/vite.ts"
+  },
+  "devDependencies": {
+    "vite-plus": "catalog:"
+  }
 }
