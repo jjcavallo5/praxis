@@ -7,7 +7,8 @@
   "author": "Jeremy Cavallo",
   "main": "index.js",
   "scripts": {
-    "test": "vp test --coverage"
+    "test": "vp test --coverage",
+    "dev": "turbo dev --ui tui"
   },
   "devDependencies": {
     "@praxis/tooling": "workspace:",
