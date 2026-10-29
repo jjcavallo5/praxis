@@ -150,6 +150,13 @@ importers:
       convex:
         specifier: ^1.48.0
         version: 1.48.0(react@19.2.8)
+    devDependencies:
+      '@praxis/tooling':
+        specifier: 'workspace:'
+        version: link:../tooling
+      typescript:
+        specifier: 'catalog:'
+        version: 6.0.3
 
   packages/tooling:
     devDependencies:
