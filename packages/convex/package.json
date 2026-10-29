@@ -4,7 +4,7 @@
   "description": "API for Praxis",
   "main": "index.js",
   "scripts": {
-    "dev": "vpr convex dev",
+    "dev": "convex dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
