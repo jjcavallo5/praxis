@@ -8,6 +8,10 @@ export const get = query({
   handler: (ctx, args) => ctx.db.get(args.id),
 });
 
+export const list = query({
+  handler: (ctx) => ctx.db.query("testTable").collect(),
+});
+
 export const create = mutation({
   args: {
     name: v.string(),
