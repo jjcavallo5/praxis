@@ -38,6 +38,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@praxis/api':
+        specifier: 'workspace:'
+        version: link:../../packages/convex
       '@tailwindcss/vite':
         specifier: ^4.1.18
         version: 4.3.3(@voidzero-dev/vite-plus-core@1.4.0(@types/node@22.20.1)(esbuild@0.27.0)(jiti@2.7.0)(typescript@6.0.3))

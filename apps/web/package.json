@@ -15,6 +15,7 @@
     "check": "tsc --noEmit"
   },
   "dependencies": {
+    "@praxis/api": "workspace:",
     "@tailwindcss/vite": "^4.1.18",
     "@tanstack/react-devtools": "latest",
     "@tanstack/react-form": "latest",
