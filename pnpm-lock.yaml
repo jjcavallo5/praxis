@@ -34,10 +34,13 @@ importers:
         version: 2.10.12
       vite-plus:
         specifier: 'catalog:'
-        version: 1.4.0(@types/node@22.20.1)(@vitest/coverage-v8@5.0.5(@vitest/browser@5.0.5)(vitest@5.0.5))(@vitest/ui@5.0.5(vitest@5.0.5))(esbuild@0.27.0)(jiti@2.7.0)(typescript@6.0.3)
+        version: 1.4.0(@types/node@22.20.1)(@vitest/coverage-v8@5.0.5)(@vitest/ui@5.0.5(vitest@5.0.5))(esbuild@0.27.0)(jiti@2.7.0)(typescript@6.0.3)
 
   apps/web:
     dependencies:
+      '@convex-dev/react-query':
+        specifier: ^0.1.0
+        version: 0.1.0(@tanstack/react-query@5.105.0(@types/react@19.2.18)(react@19.2.8))(convex@1.48.0(react@19.2.8))
       '@praxis/api':
         specifier: 'workspace:'
         version: link:../../packages/convex
@@ -74,6 +77,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      convex:
+        specifier: ^1.48.0
+        version: 1.48.0(react@19.2.8)
       lucide-react:
         specifier: ^0.577.0
         version: 0.577.0(react@19.2.8)
@@ -246,6 +252,12 @@ packages:
 
   '@blazediff/core@1.10.0':
     resolution: {integrity: sha512-AOQff0zgR7cGsZL+4E7hVkmujoPUpm0J9xzWGWZj5wCjd3gmxESXAPfKyuzs93VdpQNFhHlBhfOjrcZ+XTERtQ==}
+
+  '@convex-dev/react-query@0.1.0':
+    resolution: {integrity: sha512-ULmBZCtAQDUePdBhUv7hj1Yy4QiCelhi6uEIOtMpjW8db6W9CFKvQwLt9heLngccFyMFfAZdOfSrT+cP4AH0Jw==}
+    peerDependencies:
+      '@tanstack/react-query': ^5.0.0
+      convex: ^1.29.3
 
   '@corvu/utils@0.4.2':
     resolution: {integrity: sha512-Ox2kYyxy7NoXdKWdHeDEjZxClwzO4SKM8plAaVwmAJPxHMqA0rLOoAsa+hBDwRLpctf+ZRnAd/ykguuJidnaTA==}
@@ -3859,6 +3871,11 @@ snapshots:
   '@bcoe/v8-coverage@1.0.2': {}
 
   '@blazediff/core@1.10.0': {}
+
+  '@convex-dev/react-query@0.1.0(@tanstack/react-query@5.105.0(@types/react@19.2.18)(react@19.2.8))(convex@1.48.0(react@19.2.8))':
+    dependencies:
+      '@tanstack/react-query': 5.105.0(@types/react@19.2.18)(react@19.2.8)
+      convex: 1.48.0(react@19.2.8)
 
   '@corvu/utils@0.4.2(solid-js@1.9.15)':
     dependencies:
