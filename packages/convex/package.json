@@ -6,7 +6,8 @@
   "types": "index.ts",
   "scripts": {
     "dev": "convex dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest",
+    "test:coverage": "vitest --coverage"
   },
   "keywords": [],
   "author": "Jeremy Cavallo",
@@ -16,7 +17,11 @@
     "convex": "^1.48.0"
   },
   "devDependencies": {
+    "@edge-runtime/vm": "^5.0.0",
+    "@praxis/tooling": "workspace:",
+    "@vitest/coverage-v8": "catalog:",
+    "convex-test": "^0.0.66",
     "typescript": "catalog:",
-    "@praxis/tooling": "workspace:"
+    "vitest": "catalog:"
   }
 }
