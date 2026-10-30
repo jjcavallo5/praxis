@@ -1,0 +1,28 @@
+{
+  "name": "@praxis/api",
+  "version": "0.0.1",
+  "description": "API for Praxis",
+  "keywords": [],
+  "license": "MIT",
+  "author": "Jeremy Cavallo",
+  "type": "module",
+  "main": "index.ts",
+  "types": "index.ts",
+  "scripts": {
+    "dev": "convex dev",
+    "test": "NODE_OPTIONS=--no-experimental-webstorage vitest run",
+    "test:coverage": "NODE_OPTIONS=--no-experimental-webstorage vitest run --coverage"
+  },
+  "dependencies": {
+    "convex": "^1.48.0"
+  },
+  "devDependencies": {
+    "@edge-runtime/vm": "^5.0.0",
+    "@praxis/tooling": "workspace:",
+    "@vitest/coverage-v8": "catalog:",
+    "convex-test": "^0.0.66",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "packageManager": "pnpm@10.21.0"
+}

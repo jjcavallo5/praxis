@@ -1,0 +1,4 @@
+{
+  "extends": "@praxis/tooling/tsconfig",
+  "include": ["**/*.ts", "**/*.tsx"]
+}
