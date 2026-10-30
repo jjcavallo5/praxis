@@ -2,10 +2,10 @@
   "name": "@praxis/api",
   "version": "0.0.1",
   "description": "API for Praxis",
-  "type": "module",
   "keywords": [],
   "license": "MIT",
   "author": "Jeremy Cavallo",
+  "type": "module",
   "main": "index.ts",
   "types": "index.ts",
   "scripts": {
