@@ -2,17 +2,17 @@
   "name": "@praxis/api",
   "version": "0.0.1",
   "description": "API for Praxis",
+  "type": "module",
+  "keywords": [],
+  "license": "MIT",
+  "author": "Jeremy Cavallo",
   "main": "index.ts",
   "types": "index.ts",
   "scripts": {
     "dev": "convex dev",
-    "test": "vitest",
-    "test:coverage": "vitest --coverage"
+    "test": "NODE_OPTIONS=--no-experimental-webstorage vitest run",
+    "test:coverage": "NODE_OPTIONS=--no-experimental-webstorage vitest run --coverage"
   },
-  "keywords": [],
-  "author": "Jeremy Cavallo",
-  "license": "MIT",
-  "packageManager": "pnpm@10.21.0",
   "dependencies": {
     "convex": "^1.48.0"
   },
@@ -23,5 +23,6 @@
     "convex-test": "^0.0.66",
     "typescript": "catalog:",
     "vitest": "catalog:"
-  }
+  },
+  "packageManager": "pnpm@10.21.0"
 }

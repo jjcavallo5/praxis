@@ -1,11 +1,11 @@
 import { defineConfig } from "vite-plus";
 
+const ignorePatterns = ["**/routeTree.gen.ts", "**/convex/_generated/**"];
+
 export default defineConfig({
-  fmt: {
-    ignorePatterns: ["**/routeTree.gen.ts"],
-  },
+  fmt: { ignorePatterns },
   lint: {
-    ignorePatterns: ["**/routeTree.gen.ts"],
+    ignorePatterns,
     jsPlugins: [{ name: "vite-plus", specifier: "vite-plus/oxlint-plugin" }],
     rules: { "vite-plus/prefer-vite-plus-imports": "error" },
     options: { typeAware: true, typeCheck: true },
