@@ -4,34 +4,51 @@ import schema from "./schema";
 import { api } from "./_generated/api";
 import { modules } from "../test.setup";
 
-describe("test tests", () => {
-  it("create", async () => {
+describe("create user", () => {
+  it("create user validates properly when authenticated", async () => {
+    // Create test user via endpoint
     const t = convexTest(schema, modules);
-    await t.mutation(api.testTable.create, { name: "new test" });
-    const result = await t.query(api.testTable.list);
-    expect(result.length).toBe(1);
+    const asAuthedUser = t.withIdentity({ subject: "test-user-token" });
+    await asAuthedUser.mutation(api.users.create);
+
+    // Look directly at db to find if user exists
+    const allUsers = await t.run((ctx) => ctx.db.query("users").collect());
+    expect(allUsers.length).toBe(1);
+    expect(allUsers[0]?.subject).toBe("test-user-token");
   });
 
-  it("list", async () => {
+  it("create user rejects on unauthorized request", async () => {
+    // Unauthorized test client
     const t = convexTest(schema, modules);
-    const id = await t.run((ctx) => ctx.db.insert("testTable", { name: "test" }));
-    const result = await t.query(api.testTable.list);
-    expect(result).toEqual([{ _id: id, _creationTime: expect.any(Number), name: "test" }]);
+    await expect(() => t.mutation(api.users.create)).rejects.toThrow("Unauthorized");
+  });
+});
+
+describe("get user", () => {
+  it("get user returns user if authenticated", async () => {
+    // Create test user via endpoint
+    const t = convexTest(schema, modules);
+    await t.run((ctx) => ctx.db.insert("users", { subject: "test-user-token" }));
+
+    // User should exist
+    const asAuthedUser = t.withIdentity({ subject: "test-user-token" });
+    const user = await asAuthedUser.query(api.users.get);
+    expect(user).not.toBeNull();
+    expect(user.subject).toBe("test-user-token");
   });
 
-  it("get + update", async () => {
+  it("get user throws if user doesn't exist", async () => {
+    // Create test user via endpoint
     const t = convexTest(schema, modules);
-    const id = await t.run((ctx) => ctx.db.insert("testTable", { name: "test" }));
-    await t.mutation(api.testTable.update, { id, name: "updated" });
-    const result = await t.query(api.testTable.get, { id });
-    expect(result).toEqual({ _id: id, _creationTime: expect.any(Number), name: "updated" });
+    const asAuthedUser = t.withIdentity({ subject: "test-user-token" });
+
+    // User doesn't exist, catch error
+    await expect(() => asAuthedUser.query(api.users.get)).rejects.toThrow("User not found");
   });
 
-  it("deleteRow", async () => {
+  it("get user rejects if not authenticated", async () => {
+    // Unauthorized test client
     const t = convexTest(schema, modules);
-    const id = await t.run((ctx) => ctx.db.insert("testTable", { name: "test" }));
-    await t.mutation(api.testTable.deleteRow, { id });
-    const result = await t.query(api.testTable.list);
-    expect(result.length).toBe(0);
+    await expect(() => t.query(api.users.get)).rejects.toThrow("Unauthorized");
   });
 });

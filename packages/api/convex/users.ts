@@ -1,4 +1,3 @@
-import type { Id } from "./_generated/dataModel";
 import { query, mutation } from "./_generated/server";
 import { ConvexError } from "convex/values";
 
@@ -14,6 +13,11 @@ export const get = query({
   handler: async (ctx) => {
     const user = await ctx.auth.getUserIdentity();
     if (!user) throw new ConvexError("Unauthorized");
-    ctx.db.get(user.subject as Id<"users">);
+    const userData = await ctx.db
+      .query("users")
+      .withIndex("by_subject", (q) => q.eq("subject", user.subject))
+      .unique();
+    if (!userData) throw new ConvexError("User not found");
+    return userData;
   },
 });
