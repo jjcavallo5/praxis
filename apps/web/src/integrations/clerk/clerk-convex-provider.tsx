@@ -6,7 +6,7 @@ import { ClerkProvider, useAuth } from "@clerk/tanstack-react-start";
 type Props = { client: ConvexQueryClient };
 
 export const ClerkConvexProvider = ({ children, client }: PropsWithChildren<Props>) => (
-  <ClerkProvider publishableKey={import.meta.env.VITE_CLERK_PUBLISHABLE_KEY}>
+  <ClerkProvider>
     <ConvexProviderWithClerk client={client.convexClient} useAuth={useAuth}>
       {children}
     </ConvexProviderWithClerk>

@@ -2,7 +2,7 @@ import { createRouter as createTanStackRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 import { setupRouterSsrQueryIntegration } from "@tanstack/react-router-ssr-query";
 import { getQueryClients } from "./integrations/tanstack-query/convex-query-client";
-import { ClerkConvexProvider } from "./integrations/clerk/clerk-convex-provider";
+import { ConvexProvider } from "convex/react";
 
 export function getRouter() {
   const { queryClient, convexQueryClient } = getQueryClients();
@@ -14,7 +14,7 @@ export function getRouter() {
     defaultPreload: "intent",
     defaultPreloadStaleTime: 0,
     Wrap: ({ children }) => (
-      <ClerkConvexProvider client={convexQueryClient}>{children}</ClerkConvexProvider>
+      <ConvexProvider client={convexQueryClient.convexClient}>{children}</ConvexProvider>
     ),
   });
 
