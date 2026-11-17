@@ -5,7 +5,7 @@ export const create = mutation({
   handler: async (ctx) => {
     const user = await ctx.auth.getUserIdentity();
     if (!user) throw new ConvexError("Unauthorized");
-    ctx.db.insert("users", { subject: user.subject });
+    return ctx.db.insert("users", { subject: user.subject });
   },
 });
 

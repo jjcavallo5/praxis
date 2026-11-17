@@ -7,11 +7,10 @@
   "author": "Jeremy Cavallo",
   "main": "index.js",
   "scripts": {
-    "test": "vp test --coverage",
+    "test": "turbo test:coverage",
     "dev": "turbo dev --ui tui"
   },
   "devDependencies": {
-    "@praxis/tooling": "workspace:",
     "turbo": "^2.10.12",
     "vite-plus": "catalog:"
   },

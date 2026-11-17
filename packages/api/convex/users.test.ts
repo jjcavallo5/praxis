@@ -9,12 +9,13 @@ describe("create user", () => {
     // Create test user via endpoint
     const t = convexTest(schema, modules);
     const asAuthedUser = t.withIdentity({ subject: "test-user-token" });
-    await asAuthedUser.mutation(api.users.create);
+    const expected = await asAuthedUser.mutation(api.users.create);
 
     // Look directly at db to find if user exists
     const allUsers = await t.run((ctx) => ctx.db.query("users").collect());
     expect(allUsers.length).toBe(1);
     expect(allUsers[0]?.subject).toBe("test-user-token");
+    expect(allUsers[0]?._id).toBe(expected);
   });
 
   it("create user rejects on unauthorized request", async () => {
