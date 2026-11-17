@@ -52,16 +52,19 @@ importers:
         version: 2.10.12
       vite-plus:
         specifier: 'catalog:'
-        version: 1.4.0(@edge-runtime/vm@5.0.0)(@types/node@22.20.1)(@vitest/coverage-v8@5.0.5(@vitest/browser@5.0.5)(vitest@5.0.5))(@vitest/ui@5.0.5(vitest@5.0.5))(esbuild@0.27.0)(jiti@2.7.0)(typescript@6.0.3)
+        version: 1.4.0(@edge-runtime/vm@5.0.0)(@types/node@22.20.1)(@vitest/coverage-v8@5.0.5)(@vitest/ui@5.0.5(vitest@5.0.5))(esbuild@0.27.0)(jiti@2.7.0)(typescript@6.0.3)
 
   apps/web:
     dependencies:
+      '@clerk/react':
+        specifier: ^6.18.9
+        version: 6.18.9(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@convex-dev/react-query':
         specifier: ^0.1.0
-        version: 0.1.0(@tanstack/react-query@5.105.0(@types/react@19.2.18)(react@19.2.8))(convex@1.48.0(react@19.2.8))
+        version: 0.1.0(@tanstack/react-query@5.105.0(@types/react@19.2.18)(react@19.2.8))(convex@1.48.0(@clerk/react@6.18.9(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8))
       '@praxis/api':
         specifier: 'workspace:'
-        version: link:../../packages/convex
+        version: link:../../packages/api
       '@tailwindcss/vite':
         specifier: ^4.1.18
         version: 4.3.3(@voidzero-dev/vite-plus-core@1.4.0(@types/node@22.20.1)(esbuild@0.27.0)(jiti@2.7.0)(typescript@6.0.3))
@@ -97,7 +100,7 @@ importers:
         version: 2.1.1
       convex:
         specifier: ^1.48.0
-        version: 1.48.0(react@19.2.8)
+        version: 1.48.0(@clerk/react@6.18.9(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)
       lucide-react:
         specifier: ^0.577.0
         version: 0.577.0(react@19.2.8)
@@ -171,6 +174,31 @@ importers:
       vitest:
         specifier: 'catalog:'
         version: 5.0.5(@edge-runtime/vm@5.0.0)(@types/node@22.20.1)(@vitest/browser-preview@5.0.5)(@vitest/coverage-v8@5.0.5(@vitest/browser@5.0.5)(vitest@5.0.5))(@vitest/ui@5.0.5(vitest@5.0.5))(@voidzero-dev/vite-plus-core@1.4.0(@types/node@22.20.1)(esbuild@0.27.0)(jiti@2.7.0)(typescript@6.0.3))
+
+  packages/api:
+    dependencies:
+      convex:
+        specifier: ^1.48.0
+        version: 1.48.0(@clerk/react@6.18.9(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)
+    devDependencies:
+      '@edge-runtime/vm':
+        specifier: ^5.0.0
+        version: 5.0.0
+      '@praxis/tooling':
+        specifier: 'workspace:'
+        version: link:../tooling
+      '@vitest/coverage-v8':
+        specifier: 'catalog:'
+        version: 5.0.5(@vitest/browser@5.0.5)(vitest@5.0.5)
+      convex-test:
+        specifier: ^0.0.66
+        version: 0.0.66(convex@1.48.0(@clerk/react@6.18.9(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8))
+      typescript:
+        specifier: 'catalog:'
+        version: 6.0.3
+      vitest:
+        specifier: 'catalog:'
+        version: 5.0.5(@edge-runtime/vm@5.0.0)(@types/node@22.20.1)(@vitest/browser-preview@5.0.5)(@vitest/coverage-v8@5.0.5)(@vitest/ui@5.0.5)(vite@8.3.5(@types/node@22.20.1)(esbuild@0.27.0)(jiti@2.7.0))
 
   packages/convex:
     dependencies:
@@ -282,6 +310,25 @@ packages:
 
   '@blazediff/core@1.10.0':
     resolution: {integrity: sha512-AOQff0zgR7cGsZL+4E7hVkmujoPUpm0J9xzWGWZj5wCjd3gmxESXAPfKyuzs93VdpQNFhHlBhfOjrcZ+XTERtQ==}
+
+  '@clerk/react@6.18.9':
+    resolution: {integrity: sha512-39e3XtC5z8/l59c6hMmmO5Hxfjpgq31oNp3qvLo6zTLm6tTOK73TKeE1Ge7mwjl2Lhk60eysTq3r9mubZUTjsQ==}
+    engines: {node: '>=20.9.0'}
+    peerDependencies:
+      react: ^18.0.0 || ~19.0.3 || ~19.1.4 || ~19.2.3 || ~19.3.0-0
+      react-dom: ^18.0.0 || ~19.0.3 || ~19.1.4 || ~19.2.3 || ~19.3.0-0
+
+  '@clerk/shared@4.46.0':
+    resolution: {integrity: sha512-eb60E6xjOzcBu1B1C3Y1XucVwbo5PtkQI/gbSHEwqDwjsC9G++ePzuyzyINGkGt65ia3w6qMN1iRcdd1w/jzlQ==}
+    engines: {node: '>=20.9.0'}
+    peerDependencies:
+      react: ^18.0.0 || ~19.0.3 || ~19.1.4 || ~19.2.3 || ~19.3.0-0
+      react-dom: ^18.0.0 || ~19.0.3 || ~19.1.4 || ~19.2.3 || ~19.3.0-0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
 
   '@convex-dev/react-query@0.1.0':
     resolution: {integrity: sha512-ULmBZCtAQDUePdBhUv7hj1Yy4QiCelhi6uEIOtMpjW8db6W9CFKvQwLt9heLngccFyMFfAZdOfSrT+cP4AH0Jw==}
@@ -2880,6 +2927,9 @@ packages:
     resolution: {integrity: sha512-FJhYRoDaiatfEkUK8HKlicmu/3SGFD51q3itKDGoSTysQJBnfOcxU5GxnhE1E6soB76MbT0MBtnKJuXyAx+96Q==}
     engines: {node: '>=6'}
 
+  glob-to-regexp@0.4.1:
+    resolution: {integrity: sha512-lkX1HJXwyMcprw/5YUZc2s7DrpAiHB21/V+E1rHUrVNokkvB6bqMzT0VfV6/86ZNabt1k14YOIaT7nDvOX3Iiw==}
+
   goober@2.1.19:
     resolution: {integrity: sha512-U7veizMqxyKlM58+Z5j2ngJBH/r9siDmxpvNxSw0PylF6WQvrASJEZrxh1hidRBJc2jqoBVSyOban5u8m+6Rxg==}
     peerDependencies:
@@ -2915,6 +2965,9 @@ packages:
   jiti@2.7.0:
     resolution: {integrity: sha512-AC/7JofJvZGrrneWNaEnJeOLUx+JlGt7tNa0wZiRPT4MY1wmfKjt2+6O2p2uz2+skll8OZZmJMNqeke7kKbNgQ==}
     hasBin: true
+
+  js-cookie@3.0.8:
+    resolution: {integrity: sha512-yeJd4aNAdYZQjaon2bpD/Gb0B/omw7HQOsynXXcOiWVCacbBcPlgn8S/d1X6blFSaHao7ozqtW7NZW19xpCtIw==}
 
   js-tokens@10.0.0:
     resolution: {integrity: sha512-lM/UBzQmfJRo9ABXbPWemivdCW8V2G8FHaHdypQaIy523snUjog0W71ayWXTjiR+ixeMyVHN2XcpnTd/liPg/Q==}
@@ -3892,10 +3945,26 @@ snapshots:
 
   '@blazediff/core@1.10.0': {}
 
-  '@convex-dev/react-query@0.1.0(@tanstack/react-query@5.105.0(@types/react@19.2.18)(react@19.2.8))(convex@1.48.0(react@19.2.8))':
+  '@clerk/react@6.18.9(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+    dependencies:
+      '@clerk/shared': 4.46.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      react: 19.2.8
+      react-dom: 19.2.8(react@19.2.8)
+
+  '@clerk/shared@4.46.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+    dependencies:
+      '@tanstack/query-core': 5.105.0
+      dequal: 2.0.3
+      glob-to-regexp: 0.4.1
+      js-cookie: 3.0.8
+    optionalDependencies:
+      react: 19.2.8
+      react-dom: 19.2.8(react@19.2.8)
+
+  '@convex-dev/react-query@0.1.0(@tanstack/react-query@5.105.0(@types/react@19.2.18)(react@19.2.8))(convex@1.48.0(@clerk/react@6.18.9(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8))':
     dependencies:
       '@tanstack/react-query': 5.105.0(@types/react@19.2.18)(react@19.2.8)
-      convex: 1.48.0(react@19.2.8)
+      convex: 1.48.0(@clerk/react@6.18.9(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)
 
   '@corvu/utils@0.4.2(solid-js@1.9.15)':
     dependencies:
@@ -5817,7 +5886,7 @@ snapshots:
       '@testing-library/dom': 10.4.2
       '@testing-library/user-event': 14.6.8(@testing-library/dom@10.4.2)
       '@vitest/browser': 5.0.5(vite@8.3.5(@types/node@22.20.1)(esbuild@0.27.0)(jiti@2.7.0))(vitest@5.0.5)
-      vitest: 5.0.5(@edge-runtime/vm@5.0.0)(@types/node@22.20.1)(@vitest/browser-preview@5.0.5)(@vitest/coverage-v8@5.0.5)(@vitest/ui@5.0.5)(vite@8.3.5(@types/node@22.20.1)(esbuild@0.27.0)(jiti@2.7.0))
+      vitest: 5.0.5(@edge-runtime/vm@5.0.0)(@types/node@22.20.1)(@vitest/browser-preview@5.0.5)(@vitest/coverage-v8@5.0.5)(@vitest/ui@5.0.5(vitest@5.0.5))(vite@8.3.5(@types/node@22.20.1)(esbuild@0.27.0)(jiti@2.7.0))
     transitivePeerDependencies:
       - bufferutil
       - msw
@@ -5853,7 +5922,7 @@ snapshots:
       pngjs: 7.0.0
       sirv: 3.0.2
       tinyrainbow: 3.2.0
-      vitest: 5.0.5(@edge-runtime/vm@5.0.0)(@types/node@22.20.1)(@vitest/browser-preview@5.0.5)(@vitest/coverage-v8@5.0.5)(@vitest/ui@5.0.5)(vite@8.3.5(@types/node@22.20.1)(esbuild@0.27.0)(jiti@2.7.0))
+      vitest: 5.0.5(@edge-runtime/vm@5.0.0)(@types/node@22.20.1)(@vitest/browser-preview@5.0.5)(@vitest/coverage-v8@5.0.5)(@vitest/ui@5.0.5(vitest@5.0.5))(vite@8.3.5(@types/node@22.20.1)(esbuild@0.27.0)(jiti@2.7.0))
       ws: 8.22.0
     transitivePeerDependencies:
       - bufferutil
@@ -6096,9 +6165,25 @@ snapshots:
 
   convert-source-map@2.0.0: {}
 
+  convex-test@0.0.66(convex@1.48.0(@clerk/react@6.18.9(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)):
+    dependencies:
+      convex: 1.48.0(@clerk/react@6.18.9(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)
+
   convex-test@0.0.66(convex@1.48.0(react@19.2.8)):
     dependencies:
       convex: 1.48.0(react@19.2.8)
+
+  convex@1.48.0(@clerk/react@6.18.9(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8):
+    dependencies:
+      esbuild: 0.27.0
+      prettier: 3.9.6
+      ws: 8.21.0
+    optionalDependencies:
+      '@clerk/react': 6.18.9(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      react: 19.2.8
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
 
   convex@1.48.0(react@19.2.8):
     dependencies:
@@ -6219,6 +6304,8 @@ snapshots:
 
   get-nonce@1.0.1: {}
 
+  glob-to-regexp@0.4.1: {}
+
   goober@2.1.19(csstype@3.2.3):
     dependencies:
       csstype: 3.2.3
@@ -6241,6 +6328,8 @@ snapshots:
   isbot@5.2.2: {}
 
   jiti@2.7.0: {}
+
+  js-cookie@3.0.8: {}
 
   js-tokens@10.0.0: {}
 
@@ -7166,7 +7255,6 @@ snapshots:
       '@vitest/ui': 5.0.5(vitest@5.0.5)
     transitivePeerDependencies:
       - msw
-    optional: true
 
   webpack-virtual-modules@0.6.2: {}
 
