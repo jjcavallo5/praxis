@@ -14,7 +14,8 @@
       "dependsOn": ["^test"]
     },
     "test:coverage": {
-      "dependsOn": ["^test:coverage"]
+      "dependsOn": ["^test:coverage"],
+      "outputs": ["coverage/**"]
     },
     "dev": {
       "persistent": true,
