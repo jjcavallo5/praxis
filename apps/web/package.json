@@ -15,7 +15,7 @@
     "check": "tsc --noEmit"
   },
   "dependencies": {
-    "@clerk/react": "^6.18.9",
+    "@clerk/tanstack-react-start": "^1.7.14",
     "@convex-dev/react-query": "^0.1.0",
     "@praxis/api": "workspace:",
     "@tailwindcss/vite": "^4.1.18",
