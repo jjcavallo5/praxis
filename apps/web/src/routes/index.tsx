@@ -8,7 +8,7 @@ export const Route = createFileRoute("/")({ component: Home });
 
 function Home() {
   return (
-    <main className="flex flex-row justify-center">
+    <main className="flex flex-col items-center">
       <AppHeader />
       <HeroSection />
       <AppDetails />
