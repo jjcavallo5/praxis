@@ -7,7 +7,9 @@ const AppHeader = () => (
   <header className="flex flex-row justify-between items-center w-full border-b-[1px] border-border bg-card py-2 px-4">
     <div className="flex flex-row">
       <Link to="/">
-        <h1 className="font-black">PRAXIS</h1>
+        <h1 className="font-black">
+          <i>PRAXIS</i>
+        </h1>
       </Link>
       <AppNavBar />
     </div>
