@@ -11,16 +11,19 @@ const AppHeader = () => (
       </Link>
       <AppNavBar />
     </div>
-    <div className="flex flex-row gap-1">
+    <div className="flex flex-row items-center gap-1">
       <Show when="signed-out">
         <Button asChild variant="ghost">
-          <SignInButton />
+          <SignInButton forceRedirectUrl="/home" />
         </Button>
         <Button asChild variant="outline">
-          <SignUpButton />
+          <SignUpButton forceRedirectUrl="/home" />
         </Button>
       </Show>
       <Show when="signed-in">
+        <Button asChild variant="ghost" size="sm" className="mr-1">
+          <Link to="/home">Dashboard &rarr;</Link>
+        </Button>
         <UserButton />
       </Show>
     </div>
