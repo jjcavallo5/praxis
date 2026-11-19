@@ -31,7 +31,7 @@
     "clsx": "^2.1.1",
     "convex": "^1.48.0",
     "lucide-react": "^0.577.0",
-    "nitro": "3.0.260610-beta",
+    "nitro": "3.0.261103-rc",
     "radix-ui": "^1.6.7",
     "react": "catalog:",
     "react-dom": "catalog:",
