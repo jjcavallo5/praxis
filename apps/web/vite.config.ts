@@ -18,6 +18,11 @@ const config = defineConfig({
     viteReact(),
     babel({ presets: [reactCompilerPreset()] }),
   ]),
+  test: {
+    coverage: {
+      include: ["src/**/*.{ts,tsx}"],
+    },
+  },
 });
 
 export default config;
