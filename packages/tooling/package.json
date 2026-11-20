@@ -10,9 +10,6 @@
     "./vite": "./src/vite.ts",
     "./tsconfig": "./tsconfig.json"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "devDependencies": {
     "vite-plus": "catalog:"
   },

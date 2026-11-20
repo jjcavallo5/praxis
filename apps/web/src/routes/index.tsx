@@ -1,20 +1,18 @@
-import TestAddUser from "@/components/testComponents/TestAddUser";
 import { createFileRoute } from "@tanstack/react-router";
-import { Suspense } from "react";
-import { LoaderCircle } from "lucide-react";
-import TestListUsers from "@/components/testComponents/TestListUsers";
+import HeroSection from "@/components/routes/index/HeroSection";
+import AppHeader from "@/components/shared/AppHeader";
+import AppDetails from "@/components/routes/index/AppDetails";
+import AppFooter from "@/components/shared/AppFooter";
 
 export const Route = createFileRoute("/")({ component: Home });
 
 function Home() {
   return (
-    <div className="p-8">
-      <h1 className="text-4xl font-bold">Welcome to TanStack Start</h1>
-      <h3>Enter a name</h3>
-      <TestAddUser />
-      <Suspense fallback={<LoaderCircle className="animate-spin" />}>
-        <TestListUsers />
-      </Suspense>
-    </div>
+    <main className="flex flex-col items-center">
+      <AppHeader />
+      <HeroSection />
+      <AppDetails />
+      <AppFooter />
+    </main>
   );
 }
