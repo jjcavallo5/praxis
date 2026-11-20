@@ -15,8 +15,10 @@ export const ClerkConvexProvider = ({ children, client }: PropsWithChildren<Prop
   </ClerkProvider>
 );
 
-export const fetchClerkAuth = createServerFn({ method: "GET" }).handler(async () => {
+export const fetchClerkAuthImpl = async () => {
   const { getToken, userId } = await auth();
   const token = await getToken();
   return { token, userId };
-});
+};
+
+export const fetchClerkAuth = createServerFn({ method: "GET" }).handler(fetchClerkAuthImpl);
