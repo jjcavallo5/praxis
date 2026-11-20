@@ -19,6 +19,7 @@ const config = defineConfig({
     babel({ presets: [reactCompilerPreset()] }),
   ]),
   test: {
+    environment: "node",
     coverage: {
       include: ["src/**/*.{ts,tsx}"],
       exclude: ["src/routeTree.gen.ts"],
